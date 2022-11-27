@@ -3,9 +3,11 @@ import AlbumList from './AlbumList'
 
 function App() {
   return (
-    <div className="container">
-      <AlbumList />
-    </div>
+    <header>
+      <div className="container">
+        <AlbumList />
+      </div>
+    </header>
   )
 }
 
