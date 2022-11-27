@@ -16,22 +16,21 @@ const url =
   'https://8v3qbg1x.api.sanity.io/v2021-06-07/data/query/production?query=*[_type%20==%20%22album%22]'
 
 const AlbumList = () => {
-  const [users, setUsers] = useState([])
+  const [albums, setAlbums] = useState([])
 
   useEffect(() => {
-    getUsers()
+    getAlbums()
   }, [])
 
-  const getUsers = async () => {
+  const getAlbums = async () => {
     const response = await fetch(url)
-    const users = await response.json()
-    setUsers(users.result)
+    const albums = await response.json()
+    setAlbums(albums.result)
   }
 
   return (
     <>
-      {/* <h1 className="count">{users.length} Albums</h1> */}
-      {users.length > 0 ? (
+      {albums.length > 0 ? (
         <>
           <nav>
             <ul className="links">
@@ -50,14 +49,16 @@ const AlbumList = () => {
             </ul>
           </nav>
           <h1 id="A" className="count">
-            {users.length} Albums
+            {albums.length} Albums
           </h1>
         </>
       ) : (
         <div className="lds-dual-ring"></div>
       )}
+
+      {/* List of albums */}
       <ul>
-        {users
+        {albums
           .sort((a, b) => {
             if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1
             if (a.artist.toLowerCase() > b.artist.toLowerCase()) return 1
@@ -103,27 +104,10 @@ const AlbumList = () => {
                 ) : (
                   ''
                 )}
-                {/* <img
-                  id="artwork"
-                  className="artwork"
-                  src={urlFor(cover.asset._ref).width(500).url()}
-                /> */}
-                {/* src={
-                  altImg
-                    ? urlFor(altImg.asset._ref).width(500).url()
-                    : urlFor(cover.asset._ref).width(500).url()
-                }
-              /> */}
-                {/* Get full image URL for album artwork from API */}
-                {/* <img
-              src={urlFor(cover.asset._ref).width(200).url()}
-              className="artwork"
-            /> */}
+
                 <h3>{artist}</h3>
                 <h4>{albumTitle}</h4>
                 {altImg ? <h3 className="more">...</h3> : ''}
-                {/* {console.log(cover.asset._ref)} */}
-                {/* <img src={urlFor(cover.asset)} alt="" /> */}
               </li>
             )
           })}
