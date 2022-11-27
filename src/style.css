@@ -13,19 +13,40 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   top: 0;
   left: 0;
   /* right: 0; */
   z-index: 5;
   /* height: 5rem; */
   width: 100vw;
-  background: var(--clr-grey-9);
+  background: white;
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px; */
 }
 
 nav a {
-  color: green;
+  color: black;
+}
+
+.random-btn {
+  cursor: pointer;
+}
+
+.shuffled {
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+
+  /* position: absolute;
+  background-color: red;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3; */
 }
 
 .links {
@@ -37,7 +58,7 @@ nav a {
 }
 
 .links li {
-  padding: 1rem;
+  /* padding: 1rem; */
   background: transparent;
   display: inline-block;
   margin: 0;

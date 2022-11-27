@@ -28,6 +28,13 @@ const AlbumList = () => {
     setAlbums(albums.result)
   }
 
+  // Shuffle
+  const [shuffled, setShuffled] = useState()
+  const shuffle = () => {
+    setShuffled(albums[Math.floor(Math.random() * albums.length)])
+    console.table(shuffled)
+  }
+
   return (
     <>
       {albums.length > 0 ? (
@@ -46,6 +53,17 @@ const AlbumList = () => {
               <li>
                 <a href="#T">T-Z</a>
               </li>
+              <li>
+                <a
+                  href="#"
+                  onClick={() => {
+                    shuffled ? setShuffled() : shuffle()
+                  }}
+                  className="random-btn"
+                >
+                  {shuffled ? 'Close' : 'Random'}
+                </a>
+              </li>
             </ul>
           </nav>
           <h1 id="A" className="count">
@@ -57,7 +75,57 @@ const AlbumList = () => {
       )}
 
       {/* List of albums */}
-      <ul>
+
+      {/* SHUFFLED */}
+      {shuffled ? (
+        <div className="shuffled">
+          <h3>Your random album:</h3>
+          <li
+            className="album"
+            id={shuffled.artist[0]}
+            key={shuffled._id}
+            onClick={(e) => {
+              if (shuffled.altImg) {
+                if (
+                  urlFor(shuffled.cover.asset._ref).width(500).url() ==
+                  e.currentTarget.children[0].src
+                ) {
+                  e.currentTarget.children[0].src = urlFor(
+                    shuffled.altImg.asset._ref
+                  )
+                    .width(500)
+                    .url()
+                } else {
+                  e.currentTarget.children[0].src = urlFor(
+                    shuffled.cover.asset._ref
+                  )
+                    .width(500)
+                    .url()
+                }
+              }
+            }}
+          >
+            {shuffled.cover ? (
+              <img
+                id="artwork"
+                className="artwork"
+                src={urlFor(shuffled.cover.asset._ref).width(500).url()}
+              />
+            ) : (
+              ''
+            )}
+
+            <h3>{shuffled.artist}</h3>
+            <h4>{shuffled.albumTitle}</h4>
+            {shuffled.altImg ? <h3 className="more">...</h3> : ''}
+          </li>
+        </div>
+      ) : (
+        ''
+      )}
+      {/* END OF SHUFFLED */}
+
+      <ul className="albums">
         {albums
           .sort((a, b) => {
             if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1
@@ -68,12 +136,13 @@ const AlbumList = () => {
               return 1
             return 0
           })
-          .map((user) => {
-            const { artist, albumTitle, cover, altImg } = user
+          .map((album) => {
+            const { artist, albumTitle, cover, altImg } = album
             return (
               <li
+                className="album"
                 id={artist[0]}
-                key={user._id}
+                key={album._id}
                 onClick={(e) => {
                   if (altImg) {
                     if (
@@ -91,8 +160,6 @@ const AlbumList = () => {
                         .url()
                     }
                   }
-                  console.log(e.currentTarget.children[0].src)
-                  console.log(urlFor(cover.asset._ref).width(500).url())
                 }}
               >
                 {cover ? (
