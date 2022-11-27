@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
 
-  scroll-padding-top: 4rem;
+  scroll-padding-top: 7rem;
 }
 
 nav {
@@ -13,8 +13,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   top: 0;
   left: 0;
   /* right: 0; */
