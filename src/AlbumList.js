@@ -55,7 +55,6 @@ const AlbumList = () => {
               </li>
               <li>
                 <a
-                  href="#"
                   onClick={() => {
                     shuffled ? setShuffled() : shuffle()
                   }}

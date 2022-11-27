@@ -21,23 +21,54 @@ nav {
   z-index: 5;
   /* height: 5rem; */
   width: 100vw;
-  background: white;
+  background: black;
+
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px; */
 }
 
 nav a {
-  color: black;
+  color: white;
 }
 
 .random-btn {
+  text-align: right;
   cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #ef5350,
+    #f48fb1,
+    #7e57c2,
+    #2196f3,
+    #26c6da,
+    #43a047,
+    #eeff41,
+    #f9a825,
+    #ff5722
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .shuffled {
   width: 80%;
-  max-width: 500px;
-  margin: auto;
+  max-width: 600px;
+  position: fixed;
+  padding: 0 1rem;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  border-radius: 1rem;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 5px 5px 50px 50px #ffffff;
+  box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
+    -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
+    12px 10px 15px 7px #e488ff, -10px 10px 15px 7px #ff616b,
+    -10px -7px 27px 1px #8e5cff, 5px 5px 50px 50px #ffffff;
 
   /* position: absolute;
   background-color: red;
@@ -47,6 +78,10 @@ nav a {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3; */
+}
+
+.shuffled li {
+  box-shadow: none;
 }
 
 .links {
