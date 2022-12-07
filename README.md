@@ -1,5 +1,6 @@
 # ToDo
 
+- font looks weird in iOS?
 - make random picker more user friendly /UX
 - change loading spinner to record that rotates 360 degree css animation
 - Search feature added to nav(fixed to top)
