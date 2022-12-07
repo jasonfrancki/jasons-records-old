@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import imageUrlBuilder from '@sanity/image-url'
+import Nav from './Nav'
 import './style.css'
 
 const builder = imageUrlBuilder({
@@ -17,6 +18,7 @@ const url =
 
 const AlbumList = () => {
   const [albums, setAlbums] = useState([])
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     getAlbums()
@@ -39,48 +41,27 @@ const AlbumList = () => {
     <>
       {albums.length > 0 ? (
         <>
-          <nav>
-            <ul className="links">
-              <li>
-                <a href="#A">A-F</a>
-              </li>
-              <li>
-                <a href="#G">G-L</a>
-              </li>
-              <li>
-                <a href="#M">M-S</a>
-              </li>
-              <li>
-                <a href="#T">T-Z</a>
-              </li>
-              <li>
-                <a
-                  onClick={() => {
-                    shuffled ? setShuffled() : shuffle()
-                  }}
-                  className="random-btn"
-                >
-                  {shuffled ? 'Close' : 'Random'}
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <h1 id="A" className="count">
+          <Nav
+            shuffle={shuffle}
+            shuffled={shuffled}
+            setShuffled={setShuffled}
+          />
+          <h1 id='A' className='count'>
             {albums.length} Albums
           </h1>
         </>
       ) : (
-        <div className="lds-dual-ring"></div>
+        <div className='lds-dual-ring'></div>
       )}
 
       {/* List of albums */}
 
       {/* SHUFFLED */}
       {shuffled ? (
-        <div className="shuffled">
+        <div className='shuffled'>
           <h3>Your random album:</h3>
           <li
-            className="album"
+            className='album'
             id={shuffled.artist[0]}
             key={shuffled._id}
             onClick={(e) => {
@@ -106,8 +87,8 @@ const AlbumList = () => {
           >
             {shuffled.cover ? (
               <img
-                id="artwork"
-                className="artwork"
+                id='artwork'
+                className='artwork'
                 src={urlFor(shuffled.cover.asset._ref).width(500).url()}
               />
             ) : (
@@ -116,7 +97,7 @@ const AlbumList = () => {
 
             <h3>{shuffled.artist}</h3>
             <h4>{shuffled.albumTitle}</h4>
-            {shuffled.altImg ? <h3 className="more">...</h3> : ''}
+            {shuffled.altImg ? <h3 className='more'>...</h3> : ''}
           </li>
         </div>
       ) : (
@@ -124,7 +105,7 @@ const AlbumList = () => {
       )}
       {/* END OF SHUFFLED */}
 
-      <ul className="albums">
+      <ul className='albums'>
         {albums
           .sort((a, b) => {
             if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1
@@ -139,7 +120,7 @@ const AlbumList = () => {
             const { artist, albumTitle, cover, altImg } = album
             return (
               <li
-                className="album"
+                className='album'
                 id={artist[0]}
                 key={album._id}
                 onClick={(e) => {
@@ -163,8 +144,8 @@ const AlbumList = () => {
               >
                 {cover ? (
                   <img
-                    id="artwork"
-                    className="artwork"
+                    id='artwork'
+                    className='artwork'
                     src={urlFor(cover.asset._ref).width(500).url()}
                   />
                 ) : (
@@ -173,7 +154,7 @@ const AlbumList = () => {
 
                 <h3>{artist}</h3>
                 <h4>{albumTitle}</h4>
-                {altImg ? <h3 className="more">...</h3> : ''}
+                {altImg ? <h3 className='more'>...</h3> : ''}
               </li>
             )
           })}
