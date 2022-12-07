@@ -91,7 +91,7 @@ header {
   width: 80%;
   max-width: 600px;
   position: fixed;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   z-index: 3;
   top: 50%;
   left: 50%;
@@ -119,6 +119,10 @@ header {
 
 .shuffled li {
   box-shadow: none;
+}
+
+.shuffled img {
+  border-radius: 0;
 }
 
 .links {
@@ -172,7 +176,7 @@ li:not(nav) {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-li:hover:not(nav li) {
+li:hover:not(nav li, .shuffled li) {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transform: scale(1.05);
   cursor: pointer;
