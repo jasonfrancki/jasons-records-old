@@ -78,12 +78,7 @@ nav a {
 }
 
 header {
-  background: linear-gradient(rgba(106, 97, 202, 0.9), rgba(106, 97, 202, 0.9)),
-    url('./bg.jpg');
-  background-size: 120%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: rgb(106, 97, 202);
   min-height: 100vh;
 }
 
@@ -176,12 +171,6 @@ li:not(nav) {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-li:hover:not(nav li, .shuffled li) {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
 h3 {
   margin: 0;
   padding-top: 1.5rem;
@@ -232,6 +221,22 @@ h4 {
   }
 }
 @media screen and (min-width: 1000px) {
+  header {
+    background: linear-gradient(
+        rgba(106, 97, 202, 0.9),
+        rgba(106, 97, 202, 0.9)
+      ),
+      url('./bg.jpg');
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  li:hover:not(nav li, .shuffled li) {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
   ul {
     grid-template-columns: repeat(3, 1fr);
   }
