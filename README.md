@@ -1,5 +1,6 @@
 # ToDo
 
+- make random picker more user friendly /UX
 - change loading spinner to record that rotates 360 degree css animation
 - Search feature added to nav(fixed to top)
 - add 'sort name' field to schema to sort by arist last name, bypass 'the' or 'a, etc
