@@ -25,6 +25,10 @@ const AlbumList = () => {
     getAlbums()
   }, [])
 
+  useEffect(() => {
+    alert('hi')
+  }, [query])
+
   const getAlbums = async () => {
     const response = await fetch(url)
     const albums = await response.json()
@@ -102,6 +106,16 @@ const AlbumList = () => {
         ''
       )}
       {/* END OF SHUFFLED */}
+
+      <input
+        type='text'
+        name=''
+        id=''
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value)
+        }}
+      />
 
       <ul className='albums'>
         {albums
