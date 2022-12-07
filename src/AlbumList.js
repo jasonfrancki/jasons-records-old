@@ -39,22 +39,13 @@ const AlbumList = () => {
 
   return (
     <>
-      {albums.length > 0 ? (
-        <>
-          <Nav
-            shuffle={shuffle}
-            shuffled={shuffled}
-            setShuffled={setShuffled}
-          />
-          <h1 id='A' className='count'>
-            {albums.length} Albums
-          </h1>
-        </>
-      ) : (
-        <div className='lds-dual-ring'></div>
-      )}
+      {!albums && <div className='lds-dual-ring'></div>}
 
-      {/* List of albums */}
+      <Nav shuffle={shuffle} shuffled={shuffled} setShuffled={setShuffled} />
+
+      <h1 id='A' className='count'>
+        {albums.length} Albums
+      </h1>
 
       {/* SHUFFLED */}
       {shuffled ? (
@@ -126,7 +117,7 @@ const AlbumList = () => {
                 onClick={(e) => {
                   if (altImg) {
                     if (
-                      urlFor(cover.asset._ref).width(500).url() ==
+                      urlFor(cover.asset._ref).width(500).url() ===
                       e.currentTarget.children[0].src
                     ) {
                       e.currentTarget.children[0].src = urlFor(
