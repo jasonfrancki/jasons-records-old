@@ -27,11 +27,10 @@ const AlbumList = () => {
 
   useEffect(
     () => {
-      // if (!query) {
-      //   setResults(albums)
-      // } else {
-      const searchResults = albums.filter((album) =>
-        album.artist.toLowerCase().includes(query.toLowerCase())
+      const searchResults = albums.filter(
+        (album) =>
+          album.artist.toLowerCase().includes(query.toLowerCase()) ||
+          album.albumTitle.toLowerCase().includes(query.toLowerCase())
       )
       setResults(searchResults)
     },
