@@ -25,14 +25,25 @@ const AlbumList = () => {
     getAlbums()
   }, [])
 
-  useEffect(() => {
-    alert('hi')
-  }, [query])
+  useEffect(
+    () => {
+      // if (!query) {
+      //   setResults(albums)
+      // } else {
+      const searchResults = albums.filter((album) =>
+        album.artist.toLowerCase().includes(query.toLowerCase())
+      )
+      setResults(searchResults)
+    },
+    // }
+    [query]
+  )
 
   const getAlbums = async () => {
     const response = await fetch(url)
     const albums = await response.json()
     setAlbums(albums.result)
+    setResults(albums.result)
   }
 
   // Shuffle
@@ -55,7 +66,7 @@ const AlbumList = () => {
       <Nav shuffle={shuffle} shuffled={shuffled} setShuffled={setShuffled} />
 
       <h1 id='A' className='count'>
-        {albums.length} Albums
+        {results.length} Albums
       </h1>
 
       {/* SHUFFLED */}
@@ -106,19 +117,28 @@ const AlbumList = () => {
         ''
       )}
       {/* END OF SHUFFLED */}
+      <form>
+        <input
+          className='search-query'
+          type='text'
+          name=''
+          id=''
+          value={query}
+          placeholder='search'
+          onChange={(e) => {
+            setQuery(e.target.value)
+          }}
+        />
 
-      <input
-        type='text'
-        name=''
-        id=''
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value)
-        }}
-      />
-
+        <input
+          className='reset-button'
+          type='button'
+          value='x'
+          onClick={() => setQuery('')}
+        />
+      </form>
       <ul className='albums'>
-        {albums
+        {results
           .sort((a, b) => {
             if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1
             if (a.artist.toLowerCase() > b.artist.toLowerCase()) return 1
