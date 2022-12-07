@@ -19,6 +19,7 @@ const url =
 const AlbumList = () => {
   const [albums, setAlbums] = useState([])
   const [query, setQuery] = useState('')
+  const [results, setResults] = useState([])
 
   useEffect(() => {
     getAlbums()
@@ -37,10 +38,16 @@ const AlbumList = () => {
     console.table(shuffled)
   }
 
+  if (albums.length === 0) {
+    return (
+      <div className='loading '>
+        <div className='lds-dual-ring'></div>
+      </div>
+    )
+  }
+
   return (
     <>
-      {!albums && <div className='lds-dual-ring'></div>}
-
       <Nav shuffle={shuffle} shuffled={shuffled} setShuffled={setShuffled} />
 
       <h1 id='A' className='count'>

@@ -2,7 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
 
-* {
+*,
+::before,
+::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -56,8 +58,23 @@ nav a {
 
 .count {
   padding-top: 3rem;
+  margin-top: 5rem;
   font-family: 'Rubik Microbe', cursive;
   color: black;
+}
+
+.album-list {
+  /* min-height: 100vh; */
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
 }
 
 header {
@@ -67,6 +84,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .shuffled {
@@ -222,18 +240,18 @@ h4 {
 
 .lds-dual-ring {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 500px;
+  height: 500px;
 }
 .lds-dual-ring:after {
   content: ' ';
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 500px;
+  height: 500px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid rgb(58, 129, 211);
-  border-color: rgb(58, 129, 211) transparent rgb(58, 129, 211) transparent;
+  border: 6px solid black;
+  border-color: black transparent black transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
