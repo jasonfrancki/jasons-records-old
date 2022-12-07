@@ -1,6 +1,6 @@
 # ToDo
 
-- Search feature
+- Search feature added to nav(fixed to top)
 - Genre filter
 - Background image/gradient overlay
 
