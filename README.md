@@ -5,9 +5,11 @@
 - change loading spinner to record that rotates 360 degree css animation
 - Search feature added to nav(fixed to top)
 - add 'sort name' field to schema to sort by arist last name, bypass 'the' or 'a, etc
-- Genre filter
+- filters (i.e. genre)
+- sort by (release date, album name, artist name)
 - Background image/gradient overlay
 - height of image smaller/artist&album larger so all are the same size regardless of length of artist/album name
+
 
 # Getting Started with Create React App
 
