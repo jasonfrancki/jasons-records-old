@@ -49,7 +49,6 @@ const AlbumList = () => {
   const [shuffled, setShuffled] = useState()
   const shuffle = () => {
     setShuffled(albums[Math.floor(Math.random() * albums.length)])
-    console.table(shuffled)
   }
 
   if (albums.length === 0) {
@@ -79,19 +78,19 @@ const AlbumList = () => {
             onClick={(e) => {
               if (shuffled.altImg) {
                 if (
-                  urlFor(shuffled.cover.asset._ref).width(500).url() ==
+                  urlFor(shuffled.cover.asset._ref).width(700).url() ==
                   e.currentTarget.children[0].src
                 ) {
                   e.currentTarget.children[0].src = urlFor(
                     shuffled.altImg.asset._ref
                   )
-                    .width(500)
+                    .width(700)
                     .url()
                 } else {
                   e.currentTarget.children[0].src = urlFor(
                     shuffled.cover.asset._ref
                   )
-                    .width(500)
+                    .width(700)
                     .url()
                 }
               }
@@ -101,7 +100,7 @@ const AlbumList = () => {
               <img
                 id='artwork'
                 className='artwork'
-                src={urlFor(shuffled.cover.asset._ref).width(500).url()}
+                src={urlFor(shuffled.cover.asset._ref).width(700).url()}
               />
             ) : (
               ''
