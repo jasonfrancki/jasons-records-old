@@ -138,8 +138,8 @@ const AlbumList = () => {
       <ul className='albums'>
         {results
           .sort((a, b) => {
-            if (a.artist.toLowerCase() < b.artist.toLowerCase()) return -1
-            if (a.artist.toLowerCase() > b.artist.toLowerCase()) return 1
+            if (a.sortName.toLowerCase() < b.sortName.toLowerCase()) return -1
+            if (a.sortName.toLowerCase() > b.sortName.toLowerCase()) return 1
             if (a.albumTitle.toLowerCase() < b.albumTitle.toLowerCase())
               return -1
             if (a.albumTitle.toLowerCase() > b.albumTitle.toLowerCase())
