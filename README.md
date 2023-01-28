@@ -10,6 +10,7 @@
 - Background image/gradient overlay
 - height of image smaller/artist&album larger so all are the same size regardless of length of artist/album name
 
+---
 
 # Getting Started with Create React App
 
